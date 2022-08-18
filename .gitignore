@@ -1,0 +1,5 @@
+__pycache__
+*.swp
+
+/graffiti.txt
+/validators.txt
