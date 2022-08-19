@@ -1,0 +1,16 @@
+GRAFFITIWALL_URL = "https://goerli.beaconcha.in/graffitiwall"
+
+IMG_ORIGIN = (105, 760) # 10b57e6da0 -> 10 57 6  0 -> 105, 760
+IMG_SIZE = (63, 79)
+IMG_STAGES = [
+    'stages/graffiti-lobs-stage0.png',
+    'stages/graffiti-lobs-stage1.png',
+    'stages/graffiti-lobs-stage2.png',
+    'stages/graffiti-lobs-stage3.png',
+    'stages/graffiti-lobs-final.png'
+]
+
+GRAFFITI_SHORT = 'LH/2.5.1-df51a73'
+GRAFFITI_DEFAULT = 'Lighthouse/v2.5.1-df51a73'
+
+
