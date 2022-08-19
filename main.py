@@ -3,17 +3,19 @@ from PIL import Image
 
 from beaconchain import get_graffitiwall_pixels
 from imgutil import *
-from settings import IMG_ORIGIN, IMG_SIZE, IMG_STAGES, GRAFFITI_SHORT, GRAFFITI_DEFAULT
+from settings import IMG_ORIGIN, IMG_STAGES, GRAFFITI_SHORT, GRAFFITI_DEFAULT
+
+stages = list(Image.open(file) for file in IMG_STAGES)
+sizes = set(img.size for img in stages)
+assert len(sizes) == 1, "no stages configured, or some stages have different sizes!"
+img_size = sizes.pop()
 
 bounds = (
     IMG_ORIGIN[0],
-    IMG_ORIGIN[0] + IMG_SIZE[0],
+    IMG_ORIGIN[0] + img_size[0],
     IMG_ORIGIN[1],
-    IMG_ORIGIN[1] + IMG_SIZE[1],
+    IMG_ORIGIN[1] + img_size[1],
 )
-
-def coords_less_than(a: tuple[int, int], b: tuple[int, int]):
-    return all(zip(x < y for x, y in zip(a, b)))
 
 assert len(GRAFFITI_SHORT.encode('utf-8')) <= 16, "short graffiti is too long"
 assert len(GRAFFITI_DEFAULT.encode('utf-8')) <= 32, "default graffiti is too long"
@@ -34,10 +36,7 @@ def main():
 
     lines = None
 
-    for stage in IMG_STAGES:
-        img = Image.open(stage)
-        assert img.size == IMG_SIZE, "image size doesn't match declared size"
-
+    for img in stages:
         img_pixlist = get_pixels(img, IMG_ORIGIN)
 
         cur_diff = pixlist_diff(img_pixlist, graffitiwall_pixlist)

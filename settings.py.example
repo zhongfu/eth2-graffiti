@@ -4,9 +4,6 @@ GRAFFITIWALL_URL = "https://goerli.beaconcha.in/graffitiwall"
 # where you'd like the image to start
 IMG_ORIGIN = (105, 760)
 
-# size of images
-IMG_SIZE = (63, 79)
-
 # image stages: we'll try to draw from the first stage to the last, proceeding
 # onto the next stage only if there are no more different pixels
 #
