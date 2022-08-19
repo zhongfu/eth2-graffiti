@@ -17,7 +17,7 @@ def coords_less_than(a: tuple[int, int], b: tuple[int, int]):
 
 assert len(GRAFFITI_SHORT.encode('utf-8')) <= 16, "short graffiti is too long"
 assert len(GRAFFITI_DEFAULT.encode('utf-8')) <= 32, "default graffiti is too long"
-assert 0 <= x < 1000 for x in bounds, "image is outside of graffitiwall bounds"
+assert all(0 <= x < 1000 for x in bounds), "image is outside of graffitiwall bounds"
 
 def write_graffiti(lines: list[str]):
     with open('graffiti.txt', 'w') as f:
