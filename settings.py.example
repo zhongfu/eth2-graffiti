@@ -9,6 +9,8 @@ IMG_ORIGIN = (105, 760)
 #
 # pixels that should be drawn should have an alpha value of 255 (i.e. fully
 # opaque), so stick a white background under it or something
+#
+# images should be an RGBA image that pillow can read (e.g. png with alpha)
 IMG_STAGES = [
     'stages/graffiti-lobs-stage0.png',
     'stages/graffiti-lobs-stage1.png',
